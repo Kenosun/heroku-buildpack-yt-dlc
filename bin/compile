@@ -15,7 +15,7 @@ wget $(curl -s https://api.github.com/repos/blackjack4494/yt-dlc/releases/latest
 | cut -d : -f 2,3 \
 | tr -d \" \
 | grep -e "youtube-dlc$") 
-chmod a+rx yt-dlc
+chmod a+rx youtube-dlc
 echo "Adding to PATH" | indent
 PROFILE="$1/.profile.d/youtube-dlc.sh"
 mkdir -p "$1/.profile.d/"
