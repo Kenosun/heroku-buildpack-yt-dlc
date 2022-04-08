@@ -2,6 +2,6 @@
 if command -v youtube-dl > /dev/null; then
   exit 1
 else
-  echo "yt-dlc"
+  echo "youtube-dlc"
   exit 0
 fi

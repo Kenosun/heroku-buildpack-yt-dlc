@@ -4,20 +4,20 @@ indent() {
   sed -u 's/^/       /'
 }
 
-echo "-----> Installing yt-dlc"
+echo "-----> Installing youtube-dlc"
 cd $1
 mkdir -p "vendor"
 cd "vendor"
-mkdir -p ./yt-dlc/bin/
-cd ./yt-dlc/bin/
+mkdir -p ./youtube-dlc/bin/
+cd ./youtube-dlc/bin/
 wget $(curl -s https://api.github.com/repos/blackjack4494/yt-dlc/releases/latest \
-| grep -e "browser_download_url.*yt-dlc" \
+| grep -e "browser_download_url.*youtube-dlc" \
 | cut -d : -f 2,3 \
 | tr -d \" \
-| grep -e "yt-dlc$") 
+| grep -e "youtube-dlc$") 
 chmod a+rx yt-dlc
 echo "Adding to PATH" | indent
-PROFILE="$1/.profile.d/yt-dlc.sh"
+PROFILE="$1/.profile.d/youtube-dlc.sh"
 mkdir -p "$1/.profile.d/"
 touch $PROFILE
-echo 'export PATH="$PATH:$HOME/vendor/yt-dlc/bin"' >> $PROFILE
+echo 'export PATH="$PATH:$HOME/vendor/youtube-dlc/bin"' >> $PROFILE
